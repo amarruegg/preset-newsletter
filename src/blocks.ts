@@ -23,6 +23,61 @@ export default function(editor: Editor, opts: Required<PluginOptions>) {
     cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
   }
 
+  addBlock('custom-module', {
+  label: 'Custom Module',
+  media: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M19,3H5C3.9,3 3,3.9 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.9 20.1,3 19,3M19,19H5V5H19V19Z"/>
+  <rect x="7" y="7" width="10" height="2" fill="#0C0B31"/>
+  <rect x="7" y="11" width="10" height="2" fill="#0C0B31"/>
+  <rect x="7" y="15" width="5" height="2" fill="#0C0B31"/>
+</svg>', // Replace with an appropriate SVG or image for the block
+  content: {
+    type: 'custom-module',
+    content: `
+      <table class="wrapto600px" width="600" align="center" border="0" cellpadding="0" cellspacing="0" >
+  <tr>
+      <td style="vertical-align: top;">
+          <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#D1FFEE" style="background-color: #D1FFEE;">
+              <tr>
+                  <td height="32" style="font-size: 32px; line-height: 32px; -mso-line-height: 32px;">&nbsp;</td>
+              </tr>
+              <tr>
+                  <td align="center" width="100%" style="padding: 0 8%;">
+                      <img src="{{module_icon_1}}" alt="{{module_icon_alt_1}}" width="80" style="display: block; max-width: 80px;"/>
+                  </td>
+              </tr>
+              <tr>
+                  <td height="16" style="font-size: 16px; line-height: 16px; -mso-line-height: 16px;">&nbsp;</td>
+              </tr>
+              <tr>
+                  <td class="subheader2" style="-webkit-font-smoothing: antialiased; font-family: 'LyftProUI-Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 20px; line-height: 23px; color: #0C0B31; text-align: center; vertical-align: top; padding-left: 8%; padding-right: 8%;" align="left" valign="top">
+                      {{module_subheader_1}}
+                  </td>
+              </tr>
+              <tr>
+                  <td height="24" style="font-size: 24px; line-height: 24px; -mso-line-height: 24px;">&nbsp;</td>
+              </tr>
+              <tr>
+                  <td class="body2" style="-webkit-font-smoothing: antialiased; font-family: 'LyftProUI-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 17px; color: #0C0B31; text-align: center; vertical-align: top; padding-left: 8%; padding-right: 8%;" align="left" valign="top">
+                      {{module_body_1}}
+                  </td>
+              </tr>
+              <tr>
+                  <td height="32" style="font-size: 32px; line-height: 32px; -mso-line-height: 32px;">&nbsp;</td>
+              </tr>
+          </table>
+      </td>
+  </tr>
+</table>
+    `,
+    style: {
+      'vertical-align': 'top',
+      'text-align': 'center',
+    },
+    attributes: { class: 'wrapto600px' },
+  },
+});
+
   addBlock('sect100', {
     label: '1 Section',
     media: `<svg viewBox="0 0 24 24">
